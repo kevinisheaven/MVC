@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Users index page</title>
+    </head>
+    <body>
+
+        <h1>Login Form</h1>
+			<form action="http://localhost:3000/users" method="GET">
+				<input type="text" name="username" placeholder="Username" required>
+				<input type="password" name="password" placeholder="Password" required>
+				<input type="submit">
+			</form>
+
+        <h1>Users</h1>
+        <form action="http://localhost:3000/users" method="GET">
+        <table>
+            <tr>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Age</th>
+                <th>Email</th>
+            </tr>
+            <tr>
+                <td>XXXX</td>
+                <td>XXXX</td>
+                <td>XXXX</td>
+                <td>XXXX</td>
+            </tr>
+        </table>
+    </form>
+    <script type="text/javascript" src="index.html"></script>
+    <script type="text/javascript" src="queries.js"></script>
+    </body>
+</html>
