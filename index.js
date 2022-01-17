@@ -22,7 +22,13 @@ app.use(express.urlencoded({ extended: true }));
 
 // cookie parser middleware
 app.use(cookieParser());
-
+app.use(bodyParser.json())
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+)
+app.use(express.static('public'));
 app.get('/',(req,res) => {
   session=req.session;
   if(session.userid){
@@ -31,13 +37,9 @@ app.get('/',(req,res) => {
   res.sendFile('views/index.html',{root:__dirname})
 });
 
+// app.get('/main.js', function(req, res) {
+//   res.sendFile(path.join(__dirname + '/views/main.js'));}); 
 
-app.use(bodyParser.json())
-app.use(
-  bodyParser.urlencoded({
-    extended: true,
-  })
-)
 
 app.get('/', (request, response) => {
     response.json({ info: 'Node.js, Express, and Postgres API' })
@@ -53,5 +55,5 @@ app.post('/sign_in', db.createSession)
 
 
 app.listen(port, () => {
-    console.log(`App running on port ${port}.`)
+    console.log(`Server running on port ${port}.`)
   })
